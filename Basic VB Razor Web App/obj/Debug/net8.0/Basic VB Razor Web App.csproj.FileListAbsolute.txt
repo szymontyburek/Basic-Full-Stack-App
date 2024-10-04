@@ -1,0 +1,30 @@
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\bin\Debug\net8.0\appsettings.json
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\bin\Debug\net8.0\Basic VB Razor Web App.staticwebassets.runtime.json
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\bin\Debug\net8.0\Basic VB Razor Web App.exe
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\bin\Debug\net8.0\Basic VB Razor Web App.deps.json
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\bin\Debug\net8.0\Basic VB Razor Web App.runtimeconfig.json
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\bin\Debug\net8.0\Basic VB Razor Web App.dll
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\bin\Debug\net8.0\Basic VB Razor Web App.pdb
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\Basic VB Razor Web App.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\Basic VB Razor Web App.AssemblyInfoInputs.cache
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\Basic VB Razor Web App.AssemblyInfo.cs
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\Basic VB Razor Web App.csproj.CoreCompileInputs.cache
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\Basic VB Razor Web App.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\Basic VB Razor Web App.RazorAssemblyInfo.cache
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\Basic VB Razor Web App.RazorAssemblyInfo.cs
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\staticwebassets\msbuild.Basic VB Razor Web App.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\staticwebassets\msbuild.build.Basic VB Razor Web App.props
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Basic VB Razor Web App.props
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Basic VB Razor Web App.props
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\scopedcss\bundle\Basic VB Razor Web App.styles.css
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\scopedcss\projectbundle\Basic VB Razor Web App.bundle.scp.css
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\Basic VB Razor Web App.dll
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\refint\Basic VB Razor Web App.dll
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\Basic VB Razor Web App.pdb
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\Basic VB Razor Web App.genruntimeconfig.cache
+C:\Users\szymo\OneDrive\Desktop\Coding\Basic VB Razor Web App\Basic VB Razor Web App\obj\Debug\net8.0\ref\Basic VB Razor Web App.dll

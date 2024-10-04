@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Basic VB Razor Web App.props" />
+</Project>

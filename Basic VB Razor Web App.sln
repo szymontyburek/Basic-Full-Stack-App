@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basic VB Razor Web App", "Basic VB Razor Web App\Basic VB Razor Web App.csproj", "{C5C6E2D0-E5EE-4752-83F6-E820FE14252A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5C6E2D0-E5EE-4752-83F6-E820FE14252A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5C6E2D0-E5EE-4752-83F6-E820FE14252A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5C6E2D0-E5EE-4752-83F6-E820FE14252A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5C6E2D0-E5EE-4752-83F6-E820FE14252A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {45A8A5EB-1484-46C5-8053-45D09CE2778F}
+	EndGlobalSection
+EndGlobal
