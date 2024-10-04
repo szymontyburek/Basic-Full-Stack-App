@@ -1,5 +1,7 @@
 Imports Microsoft.AspNetCore.Builder
 Imports Microsoft.Extensions.DependencyInjection
+Imports System
+Imports System.Dynamic
 
 Module Program
     Sub Main(args As String())
@@ -18,8 +20,17 @@ Module Program
         app.UseCors("AllowAllOrigins")
 
         app.MapGet("/", Function()
-                            Dim x = 5 + 2
-                            Return $"The result is: {x}"
+                            Dim expando As ExpandoObject = New ExpandoObject()
+                            Dim expandoDict = CType(expando, IDictionary(Of String, Object))
+
+                            Try
+                                expandoDict("success") = True
+                                expandoDict("message") = "Yay"
+                            Catch ex As Exception
+                                expandoDict("success") = False
+                            End Try
+
+                            Return expandoDict
                         End Function)
         app.Run()
     End Sub

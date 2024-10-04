@@ -8,7 +8,6 @@ getRequestBtn.addEventListener("click", function () {
         })
         .then((data) => {
             console.log(data);
-            debugger;
         })
         .catch((error) => {
             console.error('There was a problem with the fetch operation:', error);
