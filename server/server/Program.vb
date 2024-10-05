@@ -2,9 +2,19 @@ Imports Microsoft.AspNetCore.Builder
 Imports Microsoft.Extensions.DependencyInjection
 Imports System
 Imports System.Dynamic
+Imports System.Data.SqlClient
 
 Module Program
     Sub Main(args As String())
+        ' call to db
+        Dim SQL As New SQLControl()
+        If SQL.connect() Then
+            Console.WriteLine("Successful Connection")
+        Else
+            Console.WriteLine("Unsuccessful Connection")
+        End If
+        ' call to db
+
         Dim builder = WebApplication.CreateBuilder(args)
 
         builder.Services.AddCors(Function(options)
