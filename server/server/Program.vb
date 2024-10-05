@@ -6,17 +6,6 @@ Imports System.Data.SqlClient
 
 Module Program
     Sub Main(args As String())
-        ' call to db
-        Dim SQL As New SQLControl()
-        Dim res = CType(SQL.GETquery("SELECT e.first_name + ' ' + e.last_name AS Name, d.title AS Department, d.description AS Responsibilities FROM Employees e INNER JOIN Departments d ON e.departmentId=d.id"), IDictionary(Of String, Object))
-
-        If res("success") Then
-            Console.WriteLine("Successful query")
-        Else
-            Console.WriteLine("Unsuccessful query")
-        End If
-        ' call to db
-
         Dim builder = WebApplication.CreateBuilder(args)
 
         builder.Services.AddCors(Function(options)
@@ -31,17 +20,18 @@ Module Program
 
         app.UseCors("AllowAllOrigins")
 
-        app.MapGet("/", Function()
-                            Dim rtn = CType(New ExpandoObject(), IDictionary(Of String, Object))
+        app.MapGet("/", Async Function()
+                            Dim SQL As New SQLControl()
+                            Dim res = CType(Await SQL.GETquery("SELECT e.first_name + ' ' + e.last_name AS Name, d.title AS Department, d.description AS Responsibilities FROM Employees e INNER JOIN Departments d ON e.departmentId=d.id"), IDictionary(Of String, Object))
+                            SQL.connection.Close() 'data is NOT visible if connection to DB has been closed. That is why it is closed AFTER receiving data from SQLControl class
 
-                            Try
-                                rtn("success") = True
-                                rtn("message") = "Yay"
-                            Catch ex As Exception
-                                rtn("success") = False
-                            End Try
+                            If res("success") Then
+                                Console.WriteLine("Successful query")
+                            Else
+                                Console.WriteLine("Unsuccessful query")
+                            End If
 
-                            Return rtn
+                            Return res
                         End Function)
         app.Run()
     End Sub
