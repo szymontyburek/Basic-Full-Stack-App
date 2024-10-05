@@ -8,7 +8,7 @@ Module Program
     Sub Main(args As String())
         ' call to db
         Dim SQL As New SQLControl()
-        If SQL.connect() Then
+        If SQL.GETquery("SELECT e.first_name + ' ' + e.last_name AS Name, d.title AS Department, d.description AS Responsibilities FROM Employees e INNER JOIN Departments d ON e.departmentId=d.id") Then
             Console.WriteLine("Successful Connection")
         Else
             Console.WriteLine("Unsuccessful Connection")
