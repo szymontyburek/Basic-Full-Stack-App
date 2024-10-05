@@ -8,7 +8,7 @@ Public Class SQLControl
     Public connection As New SqlConnection With {.ConnectionString = "Server=(localdb)\MSSQLLocalDB; Database=Pure Wafer; Integrated Security=SSPI"}
     Private SQLCmd As SqlCommand
 
-    Public Async Function GETquery(Query As String) As Task(Of ExpandoObject)
+    Public Function GETquery(Query As String) As Task(Of ExpandoObject)
         Dim rtn = CType(New ExpandoObject(), IDictionary(Of String, Object))
         rtn("message") = ""
 
