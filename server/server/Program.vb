@@ -8,10 +8,9 @@ Module Program
     Sub Main(args As String())
         ' call to db
         Dim SQL As New SQLControl()
-        Dim res As ExpandoObject = SQL.GETquery("SELECT e.first_name + ' ' + e.last_name AS Name, d.title AS Department, d.description AS Responsibilities FROM Employees e INNER JOIN Departments d ON e.departmentId=d.id")
-        Dim resObj = CType(res, IDictionary(Of String, Object))
+        Dim res = CType(SQL.GETquery("SELECT e.first_name + ' ' + e.last_name AS Name, d.title AS Department, d.description AS Responsibilities FROM Employees e INNER JOIN Departments d ON e.departmentId=d.id"), IDictionary(Of String, Object))
 
-        If resObj("success") Then
+        If res("success") Then
             Console.WriteLine("Successful query")
         Else
             Console.WriteLine("Unsuccessful query")
