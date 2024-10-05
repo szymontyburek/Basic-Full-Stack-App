@@ -9,26 +9,24 @@ Public Class SQLControl
     Private SQLCmd As SqlCommand
 
     Public Function GETquery(Query As String) As ExpandoObject
-
-        Dim rtn As ExpandoObject = New ExpandoObject()
-        Dim rtnObj = CType(rtn, IDictionary(Of String, Object))
-        rtnObj("message") = ""
+        Dim rtn = CType(New ExpandoObject(), IDictionary(Of String, Object))
+        rtn("message") = ""
 
         Try
             SQLCon.Open()
 
             SQLCmd = New SqlCommand(Query, SQLCon)
 
-            rtnObj("data") = SQLCmd.ExecuteReader
-            rtnObj("success") = True
+            rtn("data") = SQLCmd.ExecuteReader
+            rtn("success") = True
 
             SQLCon.Close()
         Catch ex As Exception
-            rtnObj("success") = False
-            rtnObj("message") = ex
+            rtn("success") = False
+            rtn("message") = ex
         End Try
 
-        Return rtnObj
+        Return rtn
     End Function
     Public Function POSTquery() As Boolean
         Try

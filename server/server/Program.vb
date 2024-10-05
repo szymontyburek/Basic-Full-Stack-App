@@ -12,9 +12,9 @@ Module Program
         Dim resObj = CType(res, IDictionary(Of String, Object))
 
         If resObj("success") Then
-            Console.WriteLine("Successful Connection")
+            Console.WriteLine("Successful query")
         Else
-            Console.WriteLine("Unsuccessful Connection")
+            Console.WriteLine("Unsuccessful query")
         End If
         ' call to db
 
@@ -33,17 +33,16 @@ Module Program
         app.UseCors("AllowAllOrigins")
 
         app.MapGet("/", Function()
-                            Dim expando As ExpandoObject = New ExpandoObject()
-                            Dim expandoDict = CType(expando, IDictionary(Of String, Object))
+                            Dim rtn = CType(New ExpandoObject(), IDictionary(Of String, Object))
 
                             Try
-                                expandoDict("success") = True
-                                expandoDict("message") = "Yay"
+                                rtn("success") = True
+                                rtn("message") = "Yay"
                             Catch ex As Exception
-                                expandoDict("success") = False
+                                rtn("success") = False
                             End Try
 
-                            Return expandoDict
+                            Return rtn
                         End Function)
         app.Run()
     End Sub
