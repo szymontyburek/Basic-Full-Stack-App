@@ -17,7 +17,7 @@ Public Class SQLControl
 
             SQLCmd = New SqlCommand(Query, connection)
 
-            rtn.data = SQLCmd.ExecuteReader
+            rtn.data = SQLCmd.ExecuteReader()
             rtn.success = True
 
         Catch ex As Exception
