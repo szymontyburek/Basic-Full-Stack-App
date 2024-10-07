@@ -1,8 +1,8 @@
 ﻿const getRequestBtn = document.getElementById("getRequest");
-const serverPort = "http://localhost:5000";
+const serverPort = "http://localhost:5000/";
 
 getRequestBtn.addEventListener("click", function () {
-    fetch(serverPort)
+    fetch(serverPort + "getEmpInfo")
         .then((response) => {
             return response.json();
         })
