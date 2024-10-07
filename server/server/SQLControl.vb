@@ -17,44 +17,37 @@ Public Class SQLControl
     Public connection As New SqlConnection With {.ConnectionString = "Server=(localdb)\MSSQLLocalDB; Database=Pure Wafer; Integrated Security=SSPI"}
     Private SQLCmd As SqlCommand
 
-    Public Function GETquery() As List(Of Employee)
+    Public Function GETquery() As Object
+        Dim rtn As Object = New ExpandoObject()
         Dim employees As New List(Of Employee)()
+        rtn.message = ""
 
-        connection.Open()
+        Try
+            connection.Open()
 
-        Using command As New SqlCommand("SELECT e.id, e.firstName, e.lastName, d.id AS deparmentId, d.title, d.description FROM Employees e INNER JOIN Departments d ON e.departmentId=d.id", connection)
-            Using reader As SqlDataReader = command.ExecuteReader()
-                While reader.Read()
-                    Dim employee As New Employee() With {
-                        .firstName = reader.GetString(1),
-                        .lastName = reader.GetString(2),
-                        .department = reader.GetString(4),
-                    .description = reader.GetString(5)
-                    }
-                    employees.Add(employee)
-                End While
+            Using command As New SqlCommand("SELECT e.id, e.firstName, e.lastName, d.id AS deparmentId, d.title, d.description FROM Employees e INNER JOIN Departments d ON e.departmentId=d.id", connection)
+                Using reader As SqlDataReader = command.ExecuteReader()
+                    While reader.Read()
+                        Dim employee As New Employee() With {
+                            .firstName = reader.GetString(1),
+                            .lastName = reader.GetString(2),
+                            .department = reader.GetString(4),
+                        .description = reader.GetString(5)
+                        }
+                        employees.Add(employee)
+                    End While
+                End Using
             End Using
-        End Using
 
-        Return employees
+            rtn.data = employees
+            rtn.success = True
 
-        'Dim rtn As Object = New ExpandoObject()
-        'rtn.message = ""
+        Catch ex As Exception
+            rtn.success = False
+            rtn.message = ex
+        End Try
 
-        'Try
-        'connection.Open()
-
-        'SQLCmd = New SqlCommand(Query, connection)
-
-        'rtn.data = SQLCmd.ExecuteReader
-        'rtn.success = True
-
-        'Catch ex As Exception
-        'rtn.success = False
-        'rtn.message = ex
-        'End Try
-
-        'Return rtn
+        Return rtn
     End Function
     Public Function POSTquery() As Boolean
         Try
