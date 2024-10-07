@@ -5,9 +5,12 @@ Imports System.Reflection.Metadata.Ecma335
 Imports Microsoft.Data.SqlClient
 
 Public Class Employee
-    Public Property name As String
+    Private Property id As Integer
+    Public Property firstName As String
+    Public Property lastName As String
+    Private Property deparmentId As Integer
     Public Property department As String
-    Public Property responsibilities As String
+    Public Property description As String
 End Class
 
 Public Class SQLControl
@@ -19,13 +22,14 @@ Public Class SQLControl
 
         connection.Open()
 
-        Using command As New SqlCommand("SELECT e.firstName + ' ' + e.lastName AS Name, d.title AS Department, d.description AS Responsibilities FROM Employees e INNER JOIN Departments d ON e.departmentId=d.id", connection)
+        Using command As New SqlCommand("SELECT e.id, e.firstName, e.lastName, d.id AS deparmentId, d.title, d.description FROM Employees e INNER JOIN Departments d ON e.departmentId=d.id", connection)
             Using reader As SqlDataReader = command.ExecuteReader()
                 While reader.Read()
                     Dim employee As New Employee() With {
-                        .name = reader.GetString(0),
-                        .department = reader.GetString(1),
-                    .responsibilities = reader.GetString(2)
+                        .firstName = reader.GetString(1),
+                        .lastName = reader.GetString(2),
+                        .department = reader.GetString(4),
+                    .description = reader.GetString(5)
                     }
                     employees.Add(employee)
                 End While
