@@ -14,7 +14,7 @@ Public Class Employee
 End Class
 
 Public Class SQLControl
-    Public connection As New SqlConnection With {.ConnectionString = "Server=(localdb)\MSSQLLocalDB; Database=Pure Wafer; Integrated Security=SSPI"}
+    Private connection As New SqlConnection With {.ConnectionString = "Server=(localdb)\MSSQLLocalDB; Database=Pure Wafer; Integrated Security=SSPI"}
     Private SQLCmd As SqlCommand
 
     Public Function GETquery() As Object
@@ -38,6 +38,8 @@ Public Class SQLControl
                     End While
                 End Using
             End Using
+
+            connection.Close()
 
             rtn.data = employees
             rtn.success = True

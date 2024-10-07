@@ -22,9 +22,7 @@ Module Program
 
         app.MapGet("/getEmpInfo", Function()
                                       Dim SQL As New SQLControl()
-                                      Dim res As Object = SQL.GETquery()
-                                      SQL.connection.Close() 'data is NOT visible if connection to DB has been closed. That is why it is closed AFTER receiving data from SQLControl class
-                                      Return res
+                                      Return SQL.GETquery()
                                   End Function)
         app.Run()
     End Sub
