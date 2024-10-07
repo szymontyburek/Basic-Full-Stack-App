@@ -8,21 +8,21 @@ Public Class SQLControl
     Public connection As New SqlConnection With {.ConnectionString = "Server=(localdb)\MSSQLLocalDB; Database=Pure Wafer; Integrated Security=SSPI"}
     Private SQLCmd As SqlCommand
 
-    Public Function GETquery(Query As String) As Task(Of ExpandoObject)
-        Dim rtn = CType(New ExpandoObject(), IDictionary(Of String, Object))
-        rtn("message") = ""
+    Public Function GETquery(Query As String) As Object
+        Dim rtn As Object = New ExpandoObject()
+        rtn.message = ""
 
         Try
             connection.Open()
 
             SQLCmd = New SqlCommand(Query, connection)
 
-            rtn("data") = SQLCmd.ExecuteReader
-            rtn("success") = True
+            rtn.data = SQLCmd.ExecuteReader
+            rtn.success = True
 
         Catch ex As Exception
-            rtn("success") = False
-            rtn("message") = ex
+            rtn.success = False
+            rtn.message = ex
         End Try
 
         Return rtn
