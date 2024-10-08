@@ -1,6 +1,14 @@
 ﻿const getRequestBtn = document.getElementById("getRequest");
-const readOnlyTable = document.getElementById("readOnlyTable");
+//const readOnlyTable = document.getElementById("readOnlyTable");
+const readOnlyTable = document.getElementById("customers");
 const serverPort = "http://localhost:5000/";
+
+const tableHeaders = {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "department": "Department",
+    "description": "Description"
+}
 
 fetch(serverPort + "getEmpInfo")
     .then((response) => {
@@ -24,7 +32,7 @@ fetch(serverPort + "getEmpInfo")
 
                 if (i === 0) {
                     HTMLelem = document.createElement("th");
-                    HTMLelem.innerHTML = header;
+                    HTMLelem.innerHTML = tableHeaders[header];
                 } else {
                     HTMLelem = document.createElement("td");
                     HTMLelem.innerHTML = rowObj[header];
