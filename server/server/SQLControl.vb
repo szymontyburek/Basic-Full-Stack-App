@@ -5,7 +5,7 @@ Imports System.Reflection.Metadata.Ecma335
 Imports Microsoft.Data.SqlClient
 
 Public Class Employee
-    Private Property id As Integer
+    Public Property id As Integer
     Public Property firstName As String
     Public Property lastName As String
     Private Property deparmentId As Integer
@@ -37,6 +37,7 @@ Public Class SQLControl
                 Using reader As SqlDataReader = command.ExecuteReader()
                     While reader.Read()
                         Dim employee As New Employee() With {
+                            .id = reader.GetInt32(0),
                             .firstName = reader.GetString(1),
                             .lastName = reader.GetString(2),
                             .department = reader.GetString(4),
