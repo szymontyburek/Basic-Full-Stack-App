@@ -31,17 +31,33 @@ const getEmpInfo = function (cb) {
 
 getEmpInfo(function (res) {
     if (!res.success) return;
+    buildTable(res, readOnlyTable);
+})
 
+getRequestBtn.addEventListener("click", function () {
+    const self = this;
+    getEmpInfo(function (res) {
+        if (!res.success) {
+            alert(res.message);
+            return;
+        }
+
+        buildTable(res, writeTable);
+
+    }, self.previousElementSibling.value)
+})
+
+const buildTable = function (res, table) {
     const data = res.data;
     const headerTR = document.createElement("tr");
-    readOnlyTable.appendChild(headerTR);
+    table.appendChild(headerTR);
 
     for (let i = 0; i < data.length; i++) {
         const rowObj = data[i];
         const headers = Object.keys(rowObj);
 
         const tr = document.createElement("tr");
-        readOnlyTable.appendChild(tr);
+        table.appendChild(tr);
 
         for (const header of headers) {
 
@@ -56,39 +72,4 @@ getEmpInfo(function (res) {
             tr.appendChild(HTMLelem);
         }
     }
-})
-
-getRequestBtn.addEventListener("click", function () {
-    const self = this;
-    getEmpInfo(function (res) {
-        if (!res.success) {
-            alert(res.message);
-            return;
-        }
-
-        const data = res.data;
-        const headerTR = document.createElement("tr");
-        writeTable.appendChild(headerTR);
-
-        for (let i = 0; i < data.length; i++) {
-            const rowObj = data[i];
-            const headers = Object.keys(rowObj);
-
-            const tr = document.createElement("tr");
-            writeTable.appendChild(tr);
-
-            for (const header of headers) {
-
-                if (i === 0) {
-                    let th = document.createElement("th");
-                    th.innerHTML = tableHeaders[header];
-                    headerTR.appendChild(th);
-                }
-
-                let HTMLelem = document.createElement("td");
-                HTMLelem.innerHTML = rowObj[header];
-                tr.appendChild(HTMLelem);
-            }
-        }
-    }, self.previousElementSibling.value)
-})
+}
