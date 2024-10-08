@@ -49,9 +49,7 @@ const buildTable = function (res, table) {
         table.appendChild(tr);
 
         for (const header of headers) {
-
             if (i === 0) createHTML("th", headerTR, tableHeaders[header]);
-
             createHTML("td", tr, rowObj[header]);
         }
     }
