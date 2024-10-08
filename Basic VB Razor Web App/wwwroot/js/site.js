@@ -85,10 +85,11 @@ getRequestBtn.addEventListener("click", function () {
 
             const cell = cells[i];
             const cellTxt = cell.innerText;
+            const cellWidthPreTbx = cell.offsetWidth;
             cell.innerText = "";
             const tbx = createHTML("input", cell);
             tbx.value = cellTxt;
-            tbx.style.width = "100%";
+            tbx.style.width = cellWidthPreTbx + "px";
         }
 
     }, self.previousElementSibling.value)
