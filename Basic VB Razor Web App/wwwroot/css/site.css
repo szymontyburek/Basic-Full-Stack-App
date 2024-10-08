@@ -21,17 +21,17 @@ body {
     margin-bottom: 60px;
 }
 
-#readOnlyTable {
+#readOnlyTable, #writeTable {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
-    #readOnlyTable th {
+    #readOnlyTable th, #writeTable th {
         text-wrap: nowrap;
     }
 
-    #readOnlyTable td, #readOnlyTable th {
+    #readOnlyTable td, #readOnlyTable th, #writeTable td, #writeTable th {
         border: 1px solid #ddd;
         padding: 8px;
     }
@@ -47,3 +47,7 @@ body {
         background-color: #04AA6D;
         color: white;
     }
+
+#readOnlyTable, #writeTable {
+    text-align: left;
+}
