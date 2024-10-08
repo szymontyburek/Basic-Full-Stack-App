@@ -17,7 +17,7 @@ Public Class SQLControl
     Private connection As New SqlConnection With {.ConnectionString = "Server=(localdb)\MSSQLLocalDB; Database=Pure Wafer; Integrated Security=SSPI"}
     Private SQLCmd As SqlCommand
 
-    Public Function GETquery() As Object
+    Public Function GETquery(id As Integer) As Object
         Dim rtn As Object = New ExpandoObject()
         Dim employees As New List(Of Employee)()
         rtn.message = ""

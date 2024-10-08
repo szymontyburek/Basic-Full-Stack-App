@@ -3,6 +3,7 @@ Imports Microsoft.Extensions.DependencyInjection
 Imports System
 Imports System.Dynamic
 Imports System.Data.SqlClient
+Imports Microsoft.AspNetCore.Http
 
 Module Program
     Sub Main(args As String())
@@ -20,9 +21,9 @@ Module Program
 
         app.UseCors("AllowAllOrigins")
 
-        app.MapGet("/getEmpInfo", Function()
+        app.MapGet("/getEmpInfo", Function(context As HttpContext)
                                       Dim SQL As New SQLControl()
-                                      Return SQL.GETquery()
+                                      Return SQL.GETquery(context.Request.Query("id"))
                                   End Function)
         app.Run()
     End Sub

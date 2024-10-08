@@ -12,8 +12,9 @@ const tableHeaders = {
 }
 
 const getEmpInfo = function (cb) {
-    let endpoint = serverPort + "getEmpInfo";
-    if (arguments.length > 1) endpoint += "/" + querystring;
+    let endpoint = serverPort + "getEmpInfo?id=";
+    if (arguments.length > 1) endpoint += arguments[1];
+    else endpoint += -1
 
     fetch(endpoint)
         .then((response) => {
@@ -57,7 +58,8 @@ getEmpInfo(function (data) {
 })
 
 getRequestBtn.addEventListener("click", function () {
+    const self = this;
     getEmpInfo(function (data) {
         debugger;
-    })
+    }, self.previousElementSibling.value)
 })
