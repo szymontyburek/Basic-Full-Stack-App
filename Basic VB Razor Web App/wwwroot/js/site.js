@@ -1,9 +1,10 @@
 ﻿const getRequestBtn = document.getElementById("getRequest");
 const readOnlyTable = document.getElementById("readOnlyTable");
+const modifyRow = document.getElementById("modifyRow");
 const serverPort = "http://localhost:5000/";
 
 const tableHeaders = {
-    "id": "Employee Id",
+    "id": "Employee ID",
     "firstName": "First Name",
     "lastName": "Last Name",
     "department": "Department",
