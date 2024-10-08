@@ -20,6 +20,9 @@ fetch(serverPort + "getEmpInfo")
         const data = res.data;
         let columns = [];
 
+        const headerTR = document.createElement("tr");
+        readOnlyTable.appendChild(headerTR);
+
         for (let i = 0; i < data.length; i++) {
             const rowObj = data[i];
             const headers = Object.keys(rowObj);
@@ -28,16 +31,15 @@ fetch(serverPort + "getEmpInfo")
             readOnlyTable.appendChild(tr);
 
             for (const header of headers) {
-                let HTMLelem;
 
                 if (i === 0) {
-                    HTMLelem = document.createElement("th");
-                    HTMLelem.innerHTML = tableHeaders[header];
-                } else {
-                    HTMLelem = document.createElement("td");
-                    HTMLelem.innerHTML = rowObj[header];
+                    let th = document.createElement("th");
+                    th.innerHTML = tableHeaders[header];
+                    headerTR.appendChild(th);
                 }
 
+                let HTMLelem = document.createElement("td");
+                HTMLelem.innerHTML = rowObj[header];
                 tr.appendChild(HTMLelem);
             }
         }
