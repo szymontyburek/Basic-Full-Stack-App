@@ -1,6 +1,6 @@
 ﻿const getRequestBtn = document.getElementById("getRequest");
 const readOnlyTable = document.getElementById("readOnlyTable");
-const modifyRow = document.getElementById("modifyRow");
+const writeTable = document.getElementById("writeTable");
 const serverPort = "http://localhost:5000/";
 
 const tableHeaders = {
@@ -33,8 +33,6 @@ getEmpInfo(function (res) {
     if (!res.success) return;
 
     const data = res.data;
-    let columns = [];
-
     const headerTR = document.createElement("tr");
     readOnlyTable.appendChild(headerTR);
 
@@ -63,9 +61,34 @@ getEmpInfo(function (res) {
 getRequestBtn.addEventListener("click", function () {
     const self = this;
     getEmpInfo(function (res) {
-        if (!res.success) alert(res.message); return;
+        if (!res.success) {
+            alert(res.message);
+            return;
+        }
 
         const data = res.data;
+        const headerTR = document.createElement("tr");
+        writeTable.appendChild(headerTR);
 
+        for (let i = 0; i < data.length; i++) {
+            const rowObj = data[i];
+            const headers = Object.keys(rowObj);
+
+            const tr = document.createElement("tr");
+            writeTable.appendChild(tr);
+
+            for (const header of headers) {
+
+                if (i === 0) {
+                    let th = document.createElement("th");
+                    th.innerHTML = tableHeaders[header];
+                    headerTR.appendChild(th);
+                }
+
+                let HTMLelem = document.createElement("td");
+                HTMLelem.innerHTML = rowObj[header];
+                tr.appendChild(HTMLelem);
+            }
+        }
     }, self.previousElementSibling.value)
 })
