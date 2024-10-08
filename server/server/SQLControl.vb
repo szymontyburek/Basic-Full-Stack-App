@@ -23,10 +23,17 @@ Public Class SQLControl
         rtn.message = ""
 
         Try
-            Dim id As Integer = CInt(idAsStr)
             connection.Open()
 
-            Using command As New SqlCommand("SELECT e.id, e.firstName, e.lastName, d.id AS deparmentId, d.title, d.description FROM Employees e INNER JOIN Departments d ON e.departmentId=d.id", connection)
+            Dim id As Integer = CInt(idAsStr)
+            Dim queryBuilder As New System.Text.StringBuilder()
+            queryBuilder.Append("SELECT e.id, e.firstName, e.lastName, d.id AS deparmentId, d.title, d.description FROM Employees e INNER JOIN Departments d ON e.departmentId=d.id")
+
+            If (id >= 0) Then
+                queryBuilder.Append(" WHERE e.id=" & id)
+            End If
+
+            Using command As New SqlCommand(queryBuilder.ToString(), connection)
                 Using reader As SqlDataReader = command.ExecuteReader()
                     While reader.Read()
                         Dim employee As New Employee() With {
