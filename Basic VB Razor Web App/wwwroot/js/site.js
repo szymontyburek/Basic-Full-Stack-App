@@ -52,9 +52,7 @@ const buildTable = function (res, table) {
 
             if (i === 0) createHTML("th", headerTR, tableHeaders[header]);
 
-            let HTMLelem = document.createElement("td");
-            HTMLelem.innerHTML = rowObj[header];
-            tr.appendChild(HTMLelem);
+            createHTML("td", tr, rowObj[header]);
         }
     }
 }
