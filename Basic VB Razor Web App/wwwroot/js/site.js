@@ -34,6 +34,7 @@ const createHTML = function (nodeType, parent, innerHTML) {
     parent.appendChild(elem);
 
     if (innerHTML) elem.innerHTML = innerHTML;
+    return elem;
 }
 
 const buildTable = function (res, table) {
@@ -69,6 +70,22 @@ getRequestBtn.addEventListener("click", function () {
         }
 
         buildTable(res, writeTable);
+
+        //supply tbx's for user to modify First Name, Last Name, and Department columns
+
+        const tr = writeTable.children[1]; //not the header row, but rather the row with the data
+        const cells = tr.children;
+
+        for (let i = 0; i < cells.length; i++) {
+            if (i === 0 || i === cells.length) continue; //if current cell is employee id or description
+
+            const cell = cells[i];
+            const cellTxt = cell.innerText;
+            cell.innerText = "";
+            const tbx = createHTML("input", cell);
+            tbx.value = cellTxt;
+            tbx.style.width = "100%";
+        }
 
     }, self.previousElementSibling.value)
 })

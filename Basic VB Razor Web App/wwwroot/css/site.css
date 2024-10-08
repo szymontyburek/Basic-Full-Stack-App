@@ -51,3 +51,7 @@ body {
 #readOnlyTable, #writeTable {
     text-align: left;
 }
+
+#writeTable {
+    font-size: 12px;
+}
