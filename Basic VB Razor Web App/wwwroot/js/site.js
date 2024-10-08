@@ -11,8 +11,11 @@ const tableHeaders = {
     "description": "Description"
 }
 
-const getEmpInfo = function (cb) {
-    fetch(serverPort + "getEmpInfo")
+const getEmpInfo = function (querystring, cb) {
+    let endpoint = serverPort + "getEmpInfo";
+    if (querystring) endpoint += "/" + querystring;
+
+    fetch(endpoint)
         .then((response) => {
             return response.json();
         })
@@ -25,7 +28,7 @@ const getEmpInfo = function (cb) {
         });
 }
 
-getEmpInfo(function (data) {
+getEmpInfo(false, function (data) {
     let columns = [];
 
     const headerTR = document.createElement("tr");
@@ -54,5 +57,7 @@ getEmpInfo(function (data) {
 })
 
 getRequestBtn.addEventListener("click", function () {
-
+    getEmpInfo(function (data) {
+        debugger;
+    })
 })
