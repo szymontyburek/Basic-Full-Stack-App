@@ -69,6 +69,10 @@ getRequestBtn.addEventListener("click", function () {
             return;
         }
 
+        while (writeTable.firstChild) {
+            writeTable.removeChild(writeTable.lastChild);
+        }
+
         buildTable(res, writeTable);
 
         //supply tbx's for user to modify First Name, Last Name, and Department columns
