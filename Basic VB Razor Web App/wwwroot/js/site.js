@@ -11,9 +11,9 @@ const tableHeaders = {
     "description": "Description"
 }
 
-const getEmpInfo = function (querystring, cb) {
+const getEmpInfo = function (cb) {
     let endpoint = serverPort + "getEmpInfo";
-    if (querystring) endpoint += "/" + querystring;
+    if (arguments.length > 1) endpoint += "/" + querystring;
 
     fetch(endpoint)
         .then((response) => {
@@ -28,7 +28,7 @@ const getEmpInfo = function (querystring, cb) {
         });
 }
 
-getEmpInfo(false, function (data) {
+getEmpInfo(function (data) {
     let columns = [];
 
     const headerTR = document.createElement("tr");
