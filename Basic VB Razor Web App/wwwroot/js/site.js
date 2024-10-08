@@ -22,14 +22,17 @@ const getEmpInfo = function (cb) {
         })
         .then((res) => {
             console.log(res);
-            cb(res.data);
+            cb(res);
         })
         .catch((error) => {
             console.error('There was a problem with the fetch operation:', error);
         });
 }
 
-getEmpInfo(function (data) {
+getEmpInfo(function (res) {
+    if (!res.success) return;
+
+    const data = res.data;
     let columns = [];
 
     const headerTR = document.createElement("tr");
@@ -59,7 +62,10 @@ getEmpInfo(function (data) {
 
 getRequestBtn.addEventListener("click", function () {
     const self = this;
-    getEmpInfo(function (data) {
-        debugger;
+    getEmpInfo(function (res) {
+        if (!res.success) alert(res.message); return;
+
+        const data = res.data;
+
     }, self.previousElementSibling.value)
 })
